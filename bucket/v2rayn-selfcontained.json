@@ -12,7 +12,7 @@
     },
     "shortcuts": [
         [
-            "v2rayN.exe",
+            "v2rayN-windows-64-SelfContained/v2rayN.exe",
             "v2rayN"
         ]
     ],
