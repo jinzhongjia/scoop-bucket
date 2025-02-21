@@ -9,7 +9,7 @@
             "hash": "4aaed7286fa7cbeca2e346b25991d3d219f2febbc4aa90ac7762ae769379d084"
         }
     },
-    "shortcuts": [["rsvim.exe", "Rsvim"]],
+    "bin": "rsvim.exe",
     "checkver": "github",
     "autoupdate": {
         "architecture": {
