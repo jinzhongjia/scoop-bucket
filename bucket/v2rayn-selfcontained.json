@@ -10,19 +10,14 @@
             "hash": "8c4d013767f75950f28257039bda138d276a12e22f82ae1673d6bb55d77a03fe"
         }
     },
-    "shortcuts": [
-        [
-            "v2rayN-windows-64-SelfContained/v2rayN.exe",
-            "v2rayN"
-        ]
-    ],
+    "shortcuts": [["v2rayN-windows-64-SelfContained/v2rayN.exe", "v2rayN"]],
     "persist": "guiConfigs",
     "checkver": "github",
     "autoupdate": {
         "architecture": {
             "64bit": {
                 "url": "https://github.com/2dust/v2rayN/releases/download/$version/v2rayN-windows-64-SelfContained.zip"
-            },
+            }
         }
     }
 }
