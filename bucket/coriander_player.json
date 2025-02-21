@@ -11,8 +11,8 @@
     },
     "shortcuts": [
         [
-            "GUI.for.Clash.exe",
-            "Clash"
+            "coriander_player.exe",
+            "Coriander Player"
         ]
     ],
     "checkver": "github",
