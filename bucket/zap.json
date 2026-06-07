@@ -9,19 +9,7 @@
             "hash": "67984B94158A57C1EEE5A2A3FA3319DB03D5FBEC536CFE654F490622A4E7958C"
         }
     },
-    "installer": {
-        "file": "ZapSetup.exe",
-        "args": [
-            "/VERYSILENT",
-            "/CURRENTUSER",
-            "/DIR=\"$dir\"",
-            "/NOICONS",
-            "/PORTABLE"
-        ]
-    },
-    "post_install": [
-        "Remove-Item \"$dir\\unins000.*\" -Force -ErrorAction SilentlyContinue"
-    ],
+    "innosetup": true,
     "bin": [
         [
             "zap-oss.exe",
