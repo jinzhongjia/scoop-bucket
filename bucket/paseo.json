@@ -1,0 +1,41 @@
+{
+    "version": "0.1.90",
+    "description": "Orchestrate multiple coding agents from desktop and mobile",
+    "homepage": "https://paseo.sh",
+    "license": "AGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/getpaseo/paseo/releases/download/v0.1.90/Paseo-Setup-0.1.90-x64.zip",
+            "hash": "B57D2D41B6845009C772586987474C85AB116D25291012015A28081C2B6E9A5F"
+        },
+        "arm64": {
+            "url": "https://github.com/getpaseo/paseo/releases/download/v0.1.90/Paseo-Setup-0.1.90-arm64.zip",
+            "hash": "8D5621776743EDA95CC16E1EAA1B941166A967067CD216E701F1E56E496DD3D6"
+        }
+    },
+    "bin": [
+        [
+            "resources\\bin\\paseo.cmd",
+            "paseo"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Paseo.exe",
+            "Paseo"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/getpaseo/paseo"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/getpaseo/paseo/releases/download/v$version/Paseo-Setup-$version-x64.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/getpaseo/paseo/releases/download/v$version/Paseo-Setup-$version-arm64.zip"
+            }
+        }
+    }
+}
