@@ -1,0 +1,41 @@
+{
+    "version": "0.1.2",
+    "description": "A small yet beautiful email client",
+    "homepage": "https://pebble.byebug.cn",
+    "license": "AGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/QingJ01/Pebble/releases/download/v0.1.2/Pebble_0.1.2_x64-setup.exe",
+            "hash": "4a468be8912a7359efbe2ec3f37d38fc261a691db23b5fa49959d2ab66146f82"
+        }
+    },
+    "pre_install": [
+        "& 7z.exe x \"$dir\\Pebble_0.1.2_x64-setup.exe\" -o\"$dir\" -y | Out-Null",
+        "Remove-Item \"$dir\\Pebble_0.1.2_x64-setup.exe\", (Join-Path $dir '$PLUGINSDIR') -Recurse -Force -ErrorAction SilentlyContinue"
+    ],
+    "bin": [
+        [
+            "pebble.exe",
+            "pebble"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "pebble.exe",
+            "Pebble"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/QingJ01/Pebble"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/QingJ01/Pebble/releases/download/v$version/Pebble_$version_x64-setup.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
