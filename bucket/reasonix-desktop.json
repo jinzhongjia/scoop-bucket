@@ -1,12 +1,12 @@
 {
-    "version": "1.17.12",
+    "version": "1.17.13",
     "description": "Tauri desktop client for DeepSeek-Reasonix",
     "homepage": "https://github.com/esengine/DeepSeek-Reasonix",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v1.17.12/Reasonix-windows-amd64-installer.exe",
-            "hash": "f05517d06948d215dcda2a6b9bfeaaf23b0726f1f40a843b298baa6c390975d4"
+            "url": "https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v1.17.13/Reasonix-windows-amd64-installer.exe",
+            "hash": "cf88c4b643e785ae581e5596a996eaf1f8d1cbc06dd34cd11dea0f5151a3bde9"
         }
     },
     "pre_install": [
