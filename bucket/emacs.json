@@ -5,15 +5,16 @@
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Eason0210/emacs-build/releases/download/1.4/emacs-31.0.50-6b8b55-no-deps.zip",
-            "hash": "7b59fbcd76a58bd285d3639fef7434d629c65dc83645bfba7b1e84dde31a2d94"
+            "url": "https://github.com/Eason0210/emacs-build/releases/download/1.4/emacs-31.0.50-6b8b55.zip",
+            "hash": "d8d0e7f12e0609db145d55a82ff74d171c92d0ba462674194af7497038b83503"
         }
     },
     "bin": [
-        [
-            "bin\\runemacs.exe",
-            "emacs"
-        ]
+        "bin\\emacs.exe",
+        "bin\\emacsclient.exe",
+        "bin\\emacsclientw.exe",
+        "bin\\runemacs.exe",
+        "bin\\etags.exe"
     ],
     "shortcuts": [
         [
@@ -26,16 +27,19 @@
             "$headers = @{ 'User-Agent' = 'Scoop' }",
             "$release = Invoke-RestMethod -Headers $headers -Uri 'https://api.github.com/repos/Eason0210/emacs-build/releases/latest'",
             "$tag = $release.tag_name",
-            "$asset = ($release.assets | Where-Object { $_.name -like 'emacs-*-no-deps.zip' } | Select-Object -First 1).name",
+            "$asset = ($release.assets | Where-Object { $_.name -match '^emacs-[\\d.]+-[0-9a-f]+\\.zip$' } | Select-Object -First 1).name",
             "Write-Output \"$asset $tag\""
         ],
-        "regex": "^emacs-(?<version>[\\d.]+-[0-9a-f]+)-no-deps\\.zip (?<tag>[\\d.]+)$"
+        "regex": "^emacs-(?<version>[\\d.]+-[0-9a-f]+)\\.zip (?<tag>[\\d.]+)$"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Eason0210/emacs-build/releases/download/$matchTag/emacs-$version-no-deps.zip"
+                "url": "https://github.com/Eason0210/emacs-build/releases/download/$matchTag/emacs-$version.zip"
             }
+        },
+        "hash": {
+            "url": "https://github.com/Eason0210/emacs-build/releases/download/$matchTag/emacs-$version-sha256sums.txt"
         }
     }
 }

@@ -7,11 +7,15 @@
         "64bit": {
             "url": "https://dl.reasonix.io/desktop-v1.39.8/Reasonix-windows-amd64-installer.exe",
             "hash": "c94a419b2f9d2edb85c1c2e948f6ff65bca27e5dbb2ef3f5d87ac399742a4cc7"
+        },
+        "arm64": {
+            "url": "https://dl.reasonix.io/desktop-v1.39.8/Reasonix-windows-arm64-installer.exe",
+            "hash": "06d3a616c014b531c174697ab725bec0d462b7cd55c3028b28a732f5747ae604"
         }
     },
     "pre_install": [
-        "& 7z.exe x \"$dir\\Reasonix-windows-amd64-installer.exe\" -o\"$dir\" -y | Out-Null",
-        "Remove-Item \"$dir\\Reasonix-windows-amd64-installer.exe\", (Join-Path $dir '$PLUGINSDIR'), (Join-Path $dir '$R9'), \"$dir\\uninstall.exe\", \"$dir\\webview2bootstrapper\" -Recurse -Force -ErrorAction SilentlyContinue"
+        "& 7z.exe x (Get-Item \"$dir\\Reasonix-windows-*-installer.exe\").FullName -o\"$dir\" -y | Out-Null",
+        "Remove-Item (Join-Path $dir 'Reasonix-windows-*-installer.exe'), (Join-Path $dir '$PLUGINSDIR'), (Join-Path $dir '$R9'), \"$dir\\uninstall.exe\", \"$dir\\webview2bootstrapper\" -Recurse -Force -ErrorAction SilentlyContinue"
     ],
     "shortcuts": [
         [
@@ -27,12 +31,19 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://dl.reasonix.io/desktop-v$version/Reasonix-windows-amd64-installer.exe"
+                "url": "https://dl.reasonix.io/desktop-v$version/Reasonix-windows-amd64-installer.exe",
+                "hash": {
+                    "url": "https://dl.reasonix.io/desktop-v$version/latest.json",
+                    "jsonpath": "$.platforms['windows-amd64'].sha256"
+                }
+            },
+            "arm64": {
+                "url": "https://dl.reasonix.io/desktop-v$version/Reasonix-windows-arm64-installer.exe",
+                "hash": {
+                    "url": "https://dl.reasonix.io/desktop-v$version/latest.json",
+                    "jsonpath": "$.platforms['windows-arm64'].sha256"
+                }
             }
-        },
-        "hash": {
-            "url": "https://dl.reasonix.io/desktop-v$version/latest.json",
-            "jsonpath": "$.platforms['windows-amd64'].sha256"
         }
     }
 }

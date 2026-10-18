@@ -5,23 +5,23 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/DetachHead/rebased/releases/download/1.1.21/rebased.exe",
-            "hash": "a513c58d292d5902f9db44c5c16252de79fa3da1b3a1f3de1dcbdc172548109f"
+            "url": "https://github.com/DetachHead/rebased/releases/download/1.1.21/rebased.win.zip",
+            "hash": "7081bec910f8c440e5a2f41059bb3491cdb49d3f38e70e7189dd95b242482217"
+        },
+        "arm64": {
+            "url": "https://github.com/DetachHead/rebased/releases/download/1.1.21/rebased-aarch64.win.zip",
+            "hash": "d8e4ff5651718f9e6d8e2eb58b523251e215e4b63b23985c56884f064a957e89"
         }
     },
-    "pre_install": [
-        "& 7z.exe x \"$dir\\rebased.exe\" -o\"$dir\" -y | Out-Null",
-        "Remove-Item \"$dir\\rebased.exe\", (Join-Path $dir '$PLUGINSDIR') -Recurse -Force -ErrorAction SilentlyContinue"
-    ],
     "bin": [
         [
-            "bin\\idea64.exe",
+            "bin\\rebased64.exe",
             "rebased"
         ]
     ],
     "shortcuts": [
         [
-            "bin\\idea64.exe",
+            "bin\\rebased64.exe",
             "Rebased"
         ]
     ],
@@ -31,7 +31,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/DetachHead/rebased/releases/download/$version/rebased.exe"
+                "url": "https://github.com/DetachHead/rebased/releases/download/$version/rebased.win.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/DetachHead/rebased/releases/download/$version/rebased-aarch64.win.zip"
             }
         }
     }
